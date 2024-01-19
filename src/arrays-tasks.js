@@ -159,9 +159,9 @@ function getAverage(arr) {
   if (arr.length === 0) {
     return 0;
   }
-  const sum = arr.reduce(function (currentSum, currentNumber) {
+  const sum = arr.reduce((currentSum, currentNumber) => {
     return currentSum + currentNumber;
-  }, 0);
+  });
   const num = sum / arr.length;
   if (Number.isInteger(num)) {
     return num;
