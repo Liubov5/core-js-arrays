@@ -93,8 +93,15 @@ function findElement(arr, value) {
  *    findAllOccurrences([ null, undefined, null ], null) => 2
  *    findAllOccurrences([ true, 0, 1, 'true' ], true) => 1
  */
-function findAllOccurrences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurrences(arr, item) {
+  let num = 0;
+  arr.filter((i) => {
+    if (i === item) {
+      num += 1;
+    }
+    return num;
+  });
+  return num;
 }
 
 /**
@@ -109,8 +116,13 @@ function findAllOccurrences(/* arr, item */) {
  *    removeFalsyValues([ 1, 2, 3, 4, 5, 'false' ]) => [ 1, 2, 3, 4, 5, 'false' ]
  *    removeFalsyValues([ false, 0, NaN, '', undefined ]) => [ ]
  */
-function removeFalsyValues(/* arr */) {
-  throw new Error('Not implemented');
+function removeFalsyValues(arr) {
+  const obj = [0, false, null, '', undefined, NaN];
+  let newArr = [];
+  newArr = arr.filter(
+    (item) => obj.indexOf(item) === -1 && !Number.isNaN(item)
+  );
+  return newArr;
 }
 
 /**
@@ -123,8 +135,10 @@ function removeFalsyValues(/* arr */) {
  *    getStringsLength([ '', 'a', 'bc', 'def', 'ghij' ]) => [ 0, 1, 2, 3, 4 ]
  *    getStringsLength([ 'angular', 'react', 'ember' ]) => [ 7, 5, 5 ]
  */
-function getStringsLength(/* arr */) {
-  throw new Error('Not implemented');
+function getStringsLength(arr) {
+  let arr2 = [];
+  arr2 = arr.map((item) => item.length);
+  return arr2;
 }
 
 /**
@@ -141,8 +155,18 @@ function getStringsLength(/* arr */) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(/* arr */) {
-  throw new Error('Not implemented');
+function getAverage(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  const sum = arr.reduce(function (currentSum, currentNumber) {
+    return currentSum + currentNumber;
+  }, 0);
+  const num = sum / arr.length;
+  if (Number.isInteger(num)) {
+    return num;
+  }
+  return Number(num.toFixed(2));
 }
 
 /**
@@ -156,6 +180,9 @@ function getAverage(/* arr */) {
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
 function isSameLength(/* arr */) {
+  // const length = arr[0].length;
+  // const sameFunc = (item) => item.length === length;
+  // return arr.every(sameFunc);
   throw new Error('Not implemented');
 }
 
