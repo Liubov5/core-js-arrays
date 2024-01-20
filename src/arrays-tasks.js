@@ -248,8 +248,9 @@ function getHead(arr, n) {
  *    getTail([ 'a', 'b', 'c', 'd'], 3) => [ 'b', 'c', 'd' ]
  *    getTail([ 'a', 'b', 'c', 'd'], 0) => []
  */
-function getTail(/* arr, n */) {
-  throw new Error('Not implemented');
+function getTail(arr, n) {
+  const arr2 = arr.reverse().slice(0, n);
+  return arr2.reverse();
 }
 
 /**
@@ -295,8 +296,11 @@ function toStringList(arr) {
  *   distinct([ 1, 1, 2, 2, 3, 3, 4, 4]) => [ 1, 2, 3, 4]
  *   distinct([]) => []
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  const a = new Set();
+  arr.map((item) => a.add(item));
+  const array = Array.from(a);
+  return array;
 }
 
 /**
@@ -361,8 +365,12 @@ function selectMany(/* arr, childrenSelector */) {
  *   calculateBalance([ [ 10, 8 ], [ 1, 5 ] ])  => (10 - 8) + (1 - 5) = 2 + -4 = -2
  *   calculateBalance([]) => 0
  */
-function calculateBalance(/* arr */) {
-  throw new Error('Not implemented');
+function calculateBalance(arr) {
+  if (!arr) {
+    return 0;
+  }
+  const num = arr[0][0] - arr[0][1] + arr[1][0] - arr[1][1];
+  return num;
 }
 
 /**
