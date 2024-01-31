@@ -488,8 +488,15 @@ function getFalsyValuesCount(arr) {
  *                              [0,0,0,1,0],
  *                              [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  return Array.from({ length: n }, (a, i) => {
+    return Array.from({ length: n }, (b, j) => {
+      if (i === j) {
+        return 1;
+      }
+      return 0;
+    });
+  });
 }
 
 /**
@@ -542,8 +549,22 @@ function getHexRGBValues(/* arr */) {
  *   getMaxItems([ 10, 2, 7, 5, 3, -5 ], 3) => [ 10, 7, 5 ]
  *   getMaxItems([ 10, 10, 10, 10 ], 3) => [ 10, 10, 10 ]
  */
-function getMaxItems(/* arr, n */) {
-  throw new Error('Not implemented');
+function getMaxItems(arr, n) {
+  let num = 0;
+  const arr2 = [];
+  const a = [...arr];
+  let max = 0;
+  arr.filter(() => {
+    if (num !== n) {
+      max = Math.max(...a);
+      const i = a.indexOf(max);
+      a.splice(i, 1);
+      arr2.push(max);
+      num += 1;
+    }
+    return max;
+  });
+  return arr2;
 }
 
 /**
